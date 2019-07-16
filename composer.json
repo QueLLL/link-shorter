@@ -1,0 +1,16 @@
+{
+    "name": "quell/linkshorter",
+    "description": "Makes your links short",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Components\\": "components/",
+            "Controllers\\": "controllers/"
+        },
+        "files": [
+            "configs/config.php"
+        ]
+    }
+}
