@@ -73,7 +73,10 @@ class Linker
 
     public static function registerNewClick($link)
     {
-        $short = Rand::getString();
+        do {
+            $short = Rand::getString();
+        }
+        while(Linker::getFullLink($short));
         $conn = Db::getConnection();
         $sql = 'UPDATE `links` SET  `clicks` = `clicks` + 1 WHERE  link = :link';
         $result = $conn->prepare($sql);

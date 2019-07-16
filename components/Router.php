@@ -9,7 +9,6 @@ use Controllers\MainController;
 class Router
 {
     private $uri;
-    private $routes;
 
     public function addRoute($uri, $path)
     {
