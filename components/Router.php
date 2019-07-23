@@ -24,18 +24,19 @@ class Router
     {
         $uri = $this->uri;
         $controller = new MainController();
+        switch ($uri) {
+            case(""):
+                $actionName = 'index';
+                break;
+            case('handle'):
+                $actionName = 'handleForm';
+                break;
+            case(preg_match('/^[0-9A-Za-z]+/',$uri)? true : false):
+                $actionName = 'redirect';
+                $params = $uri;
+                break;
+        };
 
-
-        if($uri == '') {
-            $actionName = 'index';
-        }
-        if($uri == 'handle') {
-            $actionName = 'handleForm';
-        }
-        elseif(preg_match('/[0-9A-Za-z]+/',$uri)) {
-            $actionName = 'redirect';
-            $params = $uri;
-        }
         if(isset($actionName)){
             if(isset($params)){
                 $controller->$actionName($params);

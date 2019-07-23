@@ -9,7 +9,7 @@ if(!empty($_POST)) {
     {
         $_POST['link'] = 'http://'.$_POST['link'];
     }
-//    && get_headers($_POST['link'], 1)
+
     if (filter_var($_POST['link'], FILTER_VALIDATE_URL) && isValidUrl($_POST['link'])) {
         if (Linker::isLinkExists($_POST['link'])) {
             $response = ['result' => 'ok'];
